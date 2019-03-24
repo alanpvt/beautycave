@@ -1,0 +1,47 @@
+{% import 'elements.jinja' as Cuel %}
+{% extends 'layouts/default.html' %}
+
+{% block main %}
+<section class="section">
+  <div class="container">
+    <div id="shelve" class="columns">
+      <div class="column is-4">
+        <figure class="image is-square">
+          <img src="{{ g.item.images }}">
+        </figure>
+      </div>
+      <div class="column is-4">
+        <form name="add2cart" id="add2cart" action="/cart/update" method="POST" enctype="multipart/form-data">
+          <p class="title is-1">{{ g.item.name }}</p>
+          <p id="category" class="subtitle is-3">{{ g.item.category }}</p>
+          <p class="is-size-6 has-text-justified is-hidden">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab est repudiandae
+            necessitatibus molestias quod nisi, officiis quo reiciendis quos hic aspernatur
+            nemo eaque, mollitia minima tempore laudantium sequi quas dolorum.
+          </p>
+          <!-- <div id="color">
+            <label>Color</label>
+            <ul>
+              {% for cob in ['red', 'brown'] %}
+              <li>{{ Cuel.color_select(cob.name, cob.rgb) }}</li>
+              {% endfor %}
+            </ul>
+          </div> -->
+          <div id="quantity" class="field">
+            <label class="label">Quantity</label>
+            <input class="input" type="number" name="quantity" min="1" value="1">
+          </div>
+          <div class="field is-horizontal" id="price">
+            <span class="title is-5">{{ g.item.price }}</span>
+          </div>
+            <input type="hidden" name="id" value="{{ g.item.id }}">
+            <div class="field is-horizontal">
+              <input class="button" form="add2cart" type="submit" value="Add to Cart">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

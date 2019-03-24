@@ -1,0 +1,21 @@
+{%- set ns=namespace() -%}
+{%- set ns.gtotal = 0 -%}
+Hi, you have new orders.
+
+{{ mvars.name }}
+{{ mvars.phone }}
+{{ mvars.email }}
+
+----------------------------------------------
+Item - Quantity - Amount      
+----------------------------------------------
+{%- for item in mvars.list %}
+{{item.name}} - {{item.quantity}} - {{item.price.amount*item.quantity}} {%- set ns.gtotal=ns.gtotal+item.price.amount*item.quantity -%}
+{% endfor %}
+----------------------------------------------
+Payable total is {{ns.gtotal}}
+
+Please don't keep the clients waiting.
+Thanks.
+
+This is an automated message, please do not reply.

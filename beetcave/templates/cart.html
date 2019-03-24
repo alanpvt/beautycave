@@ -1,0 +1,59 @@
+{% import 'elements.jinja' as Cuel %}
+{% extends 'layouts/default.html' %}
+
+{% block title %}BeautyCave - Cart{% endblock %}
+
+{% block main %}
+<div class="section">
+  <div class="container">
+    <ul id="cart-list">
+      <li>
+        <div></div>
+        <div>Quantity</div>
+        <div>Rate</div>
+        <div>Amount</div>
+      </li>
+      {% set ns = namespace(cart_total=0) %}
+      {% for item in targs.list %}
+      <li>
+        <div class="cart-item">
+          <div>
+            <h4 id="name">{{ item.name }}</h4>
+            <small id="category">{{ item.category }}</small>
+          </div>
+          <div>
+            <span style="float: left;"><a href="/cart/rm/{{ loop.index }}">Remove</a></span>
+            <div id="quantity">{{ item.quantity }}</div>
+          </div>
+          <div id="rate">@ {{ item.price.text }}</div>
+          {% set amnt = item.price.amount * item.quantity %}
+          <div id="cost">{{ amnt  }}</div>
+          {% set ns.cart_total = ns.cart_total + amnt %}            
+        </div>
+      </li>
+      {% endfor %}
+      <li>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div id="gtotal">{{ ns.cart_total }}</div>
+      </li>
+    </ul>
+    <form id="clf_checkout" action="/checkout" method="POST">
+      <div>
+        <label for="cl_name">Name: </label>
+        <input type="text" name="cl_name" required>
+      </div>
+      <div>
+        <label for="cl_email">Email: </label>
+        <input type="email" name="cl_email" required>
+      </div>
+      <div>
+        <label for="cl_phone">Phone: </label>
+        <input type="phone" name="cl_phone" required>
+      </div>
+      <input type="submit" name="clcheckout" value="Checkout">
+    </form>
+  </div>
+</div>
+  {% endblock %}

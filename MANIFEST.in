@@ -1,0 +1,2 @@
+recursive-include beetcave/templates *
+recursive-include beetcave/static *

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% block head %}
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/material-components-web.min.css') }}" />
+  <link rel="icon shortcut" href="/static/beautycave.png">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}" />
+  <script src="{{ url_for('static', filename='main.js') }}"></script>
+  <title>{% block title %}{% endblock %}Beauty Cave</title>
+  {% endblock %}
+</head>
+<body class="has-navbar-fixed-top">
+  <header>
+    <div class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item">
+            <figure class="image is-32x32">
+              <img style="max-height: 32px;" src="/static/beautycave.png" height="32px">
+            </figure>
+          </a>
+        </div>
+        <nav class="navbar-menu">
+          <div class="navbar-end is-size-6">
+            <div class="navbar-item">
+              <a href="/"><span>Store</span></a>
+            </div>
+            <div class="navbar-item">
+              <span><a href="/cart">Cart</a></span>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+  
+  <main>{% block main %}{% endblock %}</main>
+  
+  <footer class="footer">
+    <div class="container">
+      {% block footer %}
+      <hr>
+      <section style="margin: 1em">
+        <ul>
+          <span style="float: right;"><span style="color: grey">&lt;/&gt;&nbsp;</span> with &hearts; by &bull;ap</span>
+          <li style="font-weight: 500;"><span>SITEMAP</span></li>
+          <li><a href="">About</a></li>
+          <li><a href="">Gallery</a></li>
+        </ul>
+      </section>
+      {% endblock %}
+      <span style="margin: 1em auto; text-align: center; display: block; font-size: .8rem;">
+        <span>Copyright &copy; 2018. <a href="http://domain.invalid/">BeautyCave</a>.</span>
+      </span>
+    </div>
+  </footer>
+</body>
+</html>

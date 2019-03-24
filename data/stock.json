@@ -1,0 +1,20 @@
+{
+    "id": 8734,
+    "type": "beecave#stock",
+    "category": "Category",
+    "name": "Concealer",
+    "price": {
+        "currency": "ugx",
+        "amount": 20000.00,
+        "text": "20,000.00"
+    },
+    "color": [{
+        "name": "red",
+        "rgb": "#ff0000"
+    }, {
+        "name": "black",
+        "rgb": "#000000"
+    }],
+    "quantity": 0,
+    "gallery": ["576_n.jpg"]
+}

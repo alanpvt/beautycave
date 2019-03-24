@@ -1,0 +1,18 @@
+{
+    "type": "beecave#cart",
+    "count": -1,
+    "list": [{
+        "category": "Category",
+        "name": "Concealer",
+        "price": {
+            "currency": "ugx",
+            "amount": 20000.00,
+            "text": "20,000.00"
+        },
+        "color": [{
+            "name": "red",
+            "rgb": "#ff0000"
+        }],
+        "quantity": 5
+    }]
+}

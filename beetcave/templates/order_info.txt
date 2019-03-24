@@ -1,0 +1,23 @@
+{%- set ns=namespace() -%}
+{%- set ns.gtotal = 0 -%}
+Hello {{ mvars.name -}},
+
+You have ordered for the following items;
+
+----------------------------------------------
+Item - Quantity - Amount      
+----------------------------------------------
+{%- for item in mvars.list %}
+{{item.name}} - {{item.quantity}} - {{item.price.amount*item.quantity}} {%- set ns.gtotal=ns.gtotal+item.price.amount*item.quantity -%}
+{% endfor %}
+----------------------------------------------
+Payable total is {{ns.gtotal}}
+
+Please be patient, we are processing a
+confirmation.
+
+Thanks.
+BeautyCave - UG
+
+
+This is an automated email, please do not reply.

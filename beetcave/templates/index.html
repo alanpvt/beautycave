@@ -1,0 +1,45 @@
+{% extends 'layouts/default.html' %}
+
+{% block title %}BeautyCave - UG{% endblock %}
+
+{% block main %}
+<section class="section" style="padding-left: 0; padding-right: 0;">
+  <div class="">
+    <div class="mdc-layout-grid" style="max-width: 1072px;">
+      <div class="mdc-layout-grid__inner">
+        {% for item in store %}
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+          <a href="{{ url_for('.view_item', item_id=item.id) }}">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image">
+                  <img src="{{ item.images }}">
+                </figure>
+              </div>
+              <div class="card-content has-background-white-ter" style="padding: 1rem 1.5rem;">
+                <div class="level">
+                  <div class="level-left" style="flex-flow: column; align-items: start;">
+                    <p class="subtitle is-6">{{ item.category }}</p>
+                    <p class="title is-5">{{ item.name }}</p>
+                  </div>
+                  <div class="level-right">
+                    <span class="title is-6">{{ item.price }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  const store = {{ store|tojson|safe }};
+</script>
+{% endblock %}
+
+{% block footer %}
+{{ super() }}
+{% endblock %}

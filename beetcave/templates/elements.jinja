@@ -1,0 +1,15 @@
+{% macro input(name, type, id, other, val="") -%}
+    <input type="{{ type }}" name="{{ name }}" id="{{ id }}" value="{{ val }}" {{ other }}>
+{%- endmacro %}
+
+{% macro color_select(color, rgb, check, other="") %}
+    <div color="{color-name:color-code}" style="
+        {%- if check == 'checked' -%}
+        background-color: {{ rgb }}; color: white;
+        {%- else -%}
+        background-color: inherit; color: {{ rgb }};
+        {%- endif -%}
+        border-color: {{ rgb }};">
+    {{ input("color", "radio", other=check, val=color) }}<small>{{ color }}</small>
+    </div>
+{% endmacro %}
