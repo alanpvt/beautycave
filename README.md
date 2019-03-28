@@ -7,7 +7,7 @@ pipenv install
 ```
 or pip
 ```
-pip -r requirements.txt
+pip install -r requirements.txt
 ```
 
 ### then
