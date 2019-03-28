@@ -6,18 +6,14 @@ verify_ssl = true
 [dev-packages]
 pylint = "*"
 pbr = "*"
+pipdeptree = "*"
 
 [packages]
 flask = "*"
-google-api-python-client = "*"
 python-dotenv = "*"
 fire = "*"
-beetcave = {editable = true,path = "."}
-google-auth-httplib2 = "*"
-google-auth-oauthlib = "*"
 libsass = "*"
 flask-sqlalchemy = "*"
-sqlite-web = "*"
 wtforms-alchemy = "*"
 dictalchemy = "*"
 flask-migrate = "*"
